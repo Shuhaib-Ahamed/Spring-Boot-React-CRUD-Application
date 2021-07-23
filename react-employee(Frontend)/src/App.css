@@ -1,7 +1,7 @@
 .App {
   width: 100%;
   height: 100vh;
-  background-color: whitesmoke;
+  background-color: rgb(231, 234, 247);
 }
 .footer {
   position: absolute;
@@ -15,3 +15,4 @@
   align-items: center;
   color: grey;
 }
+

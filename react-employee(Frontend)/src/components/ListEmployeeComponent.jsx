@@ -17,6 +17,10 @@ export default class ListEmployeeComponent extends Component {
     this.props.history.push(`/employee/${id}`);
   }
 
+  viewEmployee(id) {
+    this.props.history.push(`/view-employee/${id}`);
+  }
+
   deleteEmployee(id) {
     EmployeesServices.deleteEmployee(id).then((res) => {
       this.setState({employees: this.state.employees.filter(employee => employee.id !== id)})
@@ -43,7 +47,7 @@ export default class ListEmployeeComponent extends Component {
           </button>
         </div>
         <div className="column" style={{ marginTop: "20px" }}>
-          <table className="table table-striped table-bordered">
+          <table className="table table-striped table-bordered" style={{ scrollBehavior: "auto" }}>
             <thead>
               <tr>
                 <th>Employee First Name</th>
@@ -69,9 +73,16 @@ export default class ListEmployeeComponent extends Component {
                       </button>
                       <button
                         className="btn btn-danger"
+                        style={{ marginRight: "15px" }}
                         onClick={() => this.deleteEmployee(employee.id)}
                       >
                         Delete
+                      </button>
+                      <button
+                        className="btn btn-secondary"
+                        onClick={() => this.viewEmployee(employee.id)}
+                      >
+                        View
                       </button>
                     </div>
                   </td>
